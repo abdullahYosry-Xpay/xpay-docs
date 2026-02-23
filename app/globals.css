@@ -1,8 +1,24 @@
 @import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
 
 :root {
   --background: #ffffff;
   --foreground: #171717;
+}
+
+/* Class-based dark mode (next-themes toggle) */
+.dark {
+  --background: #0a0a0a;
+  --foreground: #ededed;
+}
+
+/* System preference when no explicit theme is set */
+@media (prefers-color-scheme: dark) {
+  :root:not(.light) {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
 }
 
 @theme inline {
@@ -12,15 +28,87 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+
+#nd-docs-layout {
+  --fd-sidebar-width: 280px;
+}
+
+@media (min-width: 768px) {
+  [data-sidebar-placeholder] {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  #nd-sidebar {
+    position: sticky !important;
+    top: 0 !important;
+    height: 100dvh !important;
+    max-height: 100dvh !important;
+    overflow: hidden !important;
+    display: flex !important;
+    flex-direction: column !important;
+    width: var(--fd-sidebar-width) !important;
+    min-width: var(--fd-sidebar-width) !important;
+    border-right: 1px solid var(--fd-border, rgba(0, 0, 0, 0.08));
+  }
+
+  #nd-sidebar [data-radix-scroll-area-viewport] {
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    flex: 1 1 auto !important;
+    min-height: 0 !important;
+  }
+}
+
+#nd-docs-layout .\[grid-area\:main\] {
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  #nd-docs-layout .\[grid-area\:main\] {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* Mobile: full-width layout (override fumadocs inline grid that uses 97rem) */
+@media (max-width: 767px) {
+  #nd-docs-layout {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100vw !important;
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto 1fr !important;
+    grid-template-areas:
+      "header"
+      "main" !important;
+  }
+
+  #nd-docs-layout .\[grid-area\:main\] {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Inner content wrapper (fumadocs uses max-w-[900px]) — use full width on mobile */
+  #nd-docs-layout .\[grid-area\:main\] > * {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+  
 }

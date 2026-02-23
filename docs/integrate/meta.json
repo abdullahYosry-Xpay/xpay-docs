@@ -1,0 +1,14 @@
+{
+  "title": "Integrate",
+  "pages": [
+    "authentication",
+    "sandbox-environment",
+    "customer-state",
+    "model-context-protocol-mcp",
+    "sdks",
+    "framework-adapters",
+    "framework-guides",
+    "webhooks",
+    "oauth-2"
+  ]
+}
