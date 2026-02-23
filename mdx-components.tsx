@@ -119,6 +119,12 @@ export function useMDXComponents(components?: MDXComponents): MDXComponents {
     Warning: (props: { children: React.ReactNode }) => (
       <defaultMdxComponents.Callout type="warn" {...props} />
     ),
+    Note: (props: { children: React.ReactNode }) => (
+      <defaultMdxComponents.Callout type="info" {...props} />
+    ),
+    Tip: (props: { children: React.ReactNode }) => (
+      <defaultMdxComponents.Callout type="info" {...props} />
+    ),
     ...components,
   };
 }

@@ -1,8 +1,83 @@
 ---
 title: Trials
-description: Trials feature
+description: Offer free trials on your subscriptions
 ---
 
-# Trials
+Trials are a great way to let potential customers experience your product before committing to a subscription. With Polar, you can easily set up free trials for your subscription products.
 
-Content coming soon.
+## Setting up a trial
+
+You can set up a trial period through the following means:
+
+* When creating or editing a [product](/features/products).
+* When creating or editing a [checkout link](/features/checkout/links).
+* When creating a Checkout Session through the [API](/api-reference/checkouts/create-session).
+
+If you set a trial period on the Checkout Link or Checkout Session, it will **override the trial period set on the product**.
+
+The trial period consists of two parameters:
+
+* **A unit**: day, week, month, or year.
+* **A duration**: a number representing how many units the trial will last.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=808ba964c320447e8bb71612e27687d0" data-og-width="738" width="738" data-og-height="260" height="260" data-path="assets/features/trials/setup.light.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=4fcfd0070c9e5253ee69f2bdbb59f1f7 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=c3f79b4b212a10ac184114d9daaa3875 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=46a20e477e4440168def8ff1f5ff981d 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=6aa9888c5eb90426e3c1871d6bbf189c 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=6a7e1cbe712be49b252f5f6a6957b04c 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.light.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=d6481e23ba2cf03e160d9db75eb39a9c 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=45e513c1055d34cff0569e72750ca83c" data-og-width="738" width="738" data-og-height="260" height="260" data-path="assets/features/trials/setup.dark.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=a87e68d23703f6f6821467d7f9401035 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=0571140c6735921dfcef1243e2212817 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=ba7005e18f90b984d287cb1fa38e6adc 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=1eb19537130488fdc5b2e602207fc9d6 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=5b44bdaf04a9e05685654917f3de36a6 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/setup.dark.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=c15cd0d1db1ce2971e6f5d2920760875 2500w" />
+
+## Starting a trial
+
+When a customer checks out a subscription product with a trial period, they will not be charged immediately. Instead, they will have access to the product for the duration of the trial period.
+
+We'll still collect their payment information at checkout, but they won't be charged until the trial period ends. This means that if they decide to cancel before the trial ends, they won't be charged at all.
+
+Once the trial period ends, the customer will be automatically charged for the subscription, and their billing cycle will begin.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=a022daf013c20b48e1fdfd6610214b21" data-og-width="1162" width="1162" data-og-height="612" height="612" data-path="assets/features/trials/checkout.light.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=fbd287450129c8314db7c172a18e0400 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=a754f0e914ea2a5d33cbdb9a78e3e63c 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=3bdf9c2c463c415b3e5d4ecdaedaf7ce 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=1519c8ce8d5bf50da448c5fabab2ebf2 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=55cb34b210769fc9a1a491125e834170 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.light.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=dbdfada58d5dfa2188ac8227e50dad43 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=5b41262d9dd3f8513060027341ab72ff" data-og-width="1160" width="1160" data-og-height="612" height="612" data-path="assets/features/trials/checkout.dark.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=19af6353f41146584913e2e9b8b25cd2 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=b43b031871cae05ad977af0c559c2571 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=3cf49290fd51d8f145dcd296c7fc9d6a 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=4b6e98e4d1381fd7666c6bfd36c0b5a8 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=075e63a6d5688dae9291616969909f64 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/checkout.dark.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=23bf69aa0406fb615fd781cfdbc2baa1 2500w" />
+
+## Adding, extending or canceling a trial
+
+For existing subscriptions, you can add, extend or cancel a customer's trial period at any time through the dashboard, from the subscription details page. Click on **Update Subscription**, then click on the **Trial** tab.
+
+To add or extend a trial, set a new trial end date in the future. If the subscription was active, its status will be changed to **trialing**, and the billing will be postponed until the end of the trial.
+
+To cancel a trial, click on the **End trial** button. The subscription will become active immediately, and the customer will be charged immediately for a new billing cycle.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=e8068c41e9a3eef52df62342a8b24cdb" data-og-width="1080" width="1080" data-og-height="800" height="800" data-path="assets/features/trials/update.light.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=8f0072d92524ba23db0456da130d3b53 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=9d251cdf512299f07e62b7448902b2ba 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=0dcf7d5afaecf3cfabe0d0e24da92568 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=6c92cf547dbee64f012b08387252ca15 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=64d82d2d76092fc1b7b9bbeecd854eeb 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.light.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=0654a5854cac78a4986675c1a119b944 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=18f6391c5e807fae964668ca29702895" data-og-width="1080" width="1080" data-og-height="800" height="800" data-path="assets/features/trials/update.dark.png" data-optimize="true" data-opv="3" srcSet="https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=280&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=593567603580e4c92a390d5306f13084 280w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=560&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=06b8c708e99d0939d0b7950b793b79b4 560w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=840&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=607ceb412cf8911a45653b7dbe414b1a 840w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=1100&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=79e2379515425312d36838b7ab5cd792 1100w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=1650&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=c0e7b9fb0e08327860b4aa388f4632e7 1650w, https://mintcdn.com/polar/6okRukiIx_KDNAFT/assets/features/trials/update.dark.png?w=2500&fit=max&auto=format&n=6okRukiIx_KDNAFT&q=85&s=67b1072c9ea512b588e1e4e33d2017c1 2500w" />
+
+## Preventing trial abuse
+
+To protect your business from customers repeatedly signing up for trials, you can enable the **Prevent trial abuse** feature from your organization's subscription settings.
+
+### How it works
+
+When this feature is enabled, Polar tracks trial redemptions using:
+
+* **Email addresses**: We automatically detect and normalize email aliases (e.g., `user+alias@example.com` is treated as `user@example.com`) to prevent abuse through simple email variations.
+* **Payment method fingerprints**: We track the unique fingerprint of payment methods (credit cards) used during checkout to identify returning customers even if they use a different email address.
+
+A customer will be blocked from starting a new trial if they have previously redeemed a trial for any of your products and match either:
+
+* The same unaliased email address, OR
+* The same payment method fingerprint
+
+### Enabling the feature
+
+1. Go to your organization's **Settings** page
+2. Navigate to the **Subscription** section
+3. Toggle on **Prevent trial abuse**
+
+Once enabled, the feature will apply to all future trial checkout attempts across all your products.
+
+### Customer experience
+
+When a customer who has already used a trial attempts to check out again:
+
+1. They will see an error message: "You have already used a trial for this product. Trials can only be used once per customer."
+2. The checkout will automatically refresh without the trial period
+3. The customer can still complete their purchase and subscribe at the regular price
+
+This approach ensures a smooth experience while protecting your business from trial abuse.

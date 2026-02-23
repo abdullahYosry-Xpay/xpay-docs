@@ -1,8 +1,43 @@
 ---
 title: Customer Management
-description: Customer management
+description: Get insights on your customers and sales
 ---
+> ## Documentation Index
+> Fetch the complete documentation index at: https://polar.sh/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
 
 # Customer Management
 
-Content coming soon.
+> Get insights on your customers and sales
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=dc8cb8a0793331ec889f89f3b84d33ac" data-og-width="3586" width="3586" data-og-height="2058" height="2058" data-path="assets/features/customer-management/details.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=bae78683c0d08af7443429396e34ff37 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3373c7a73fd4466b11e869a77d565087 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=77b4dfed4b853207f4f7bcc80cfbc8c5 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4203867948a461a250e4fd8a0e0b80b4 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9b8c2177ae145edd18da9d342e6b41bc 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=eabd97efe2c60bf0d4383b5b2ffb9040 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=53377b04b7d065e66102c0a2141118fb" data-og-width="5110" width="5110" data-og-height="2642" height="2642" data-path="assets/features/customer-management/details.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=bbd9c9c7ce8485be5e5f915a3a50ce59 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=2a8289667951ee421994f95ab675e8ec 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=92b6c0e70e36f730ca69201ee3d6a0c2 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=1ed6e42cf08b7d6493e66a8ebf40880e 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=2fb8048d2b752758b307b972d51a8293 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/details.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=d3677f8c6668c78a86fbebc3ec990c68 2500w" />
+
+## Managing Customers
+
+Polar has a built in feature to view and manage your Customers.
+
+Everyone who has ever purchased something from you will be recorded as a Customer to your Organization. You’re able to see past orders and their ongoing subscriptions, as well as some additional metrics.
+
+## External ID
+
+Quite often, you'll have our own users management system in your application, where your customer already have an ID. To ease reconciliation between Polar and your system, we have a dedicated [`external_id`](/api-reference/customers/get-external#response-external-id) field on Customers. It's unique across your organization and can't be changed once set.
+
+We have dedicated API endpoints that work with the `external_id` field, so you don't even have to store the internal Polar ID in your system.
+
+<Card title="Get Customer by External ID" icon="link" href="/api-reference/customers/get-external" horizontal />
+
+<Card title="Update Customer by External ID" icon="link" href="/api-reference/customers/update-external" horizontal />
+
+<Card title="Delete Customer by External ID" icon="link" href="/api-reference/customers/delete-external" horizontal />
+
+## Metadata
+
+You may set additional metadata on Customers. This can be very useful to store additional data about your customer you want to be available through our API and webhooks.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=00c8cdfc037e19bfe63045c1d9d9459e" data-og-width="1498" width="1498" data-og-height="960" height="960" data-path="assets/features/customer-management/edit.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=2311a62fc87614187fdc6db3cf6dcc4e 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3136da81850bbf5112a08da4dd331a90 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4d0dc1e893909a66008cae1d58d1bb79 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=0a45a8134a21dbb82eef752f96c88e11 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=2fc8bb0d02e3f5855ac354d26529eec6 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4dde37266fa28b5479ddd3a3eaac611e 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=1981f637bea304c95d62ed7b7d85d14f" data-og-width="1512" width="1512" data-og-height="964" height="964" data-path="assets/features/customer-management/edit.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=88775acf708be69243d11458acf316cf 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=e5119c234bc4c23d48135d83ce06349e 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=2b2d2e7fef128546a7bc00d9d9d25c45 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=b8ed1faa8b58f5775359d737eb762315 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=046e0d5acd6f5a6128566168d1acc316 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/customer-management/edit.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=684fac2c9c0f32548cf08dd328875e54 2500w" />
+
+It can be set through the dashboard or through the [API](/api-reference/customers/update#body-metadata). It can also be pre-set when creating a Checkout Session by using the [`customer_metadata`](/api-reference/checkouts/create-session#body-customer-metadata) field. This way, after a successful checkout, the metadata will automatically be set on the newly created Customer.

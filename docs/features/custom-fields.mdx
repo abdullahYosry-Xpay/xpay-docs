@@ -1,8 +1,133 @@
 ---
 title: Custom Fields
-description: Custom fields
+description: Learn how to add custom input fields to your checkout with Polar
 ---
+> ## Documentation Index
+> Fetch the complete documentation index at: https://polar.sh/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
 
 # Custom Fields
 
-Content coming soon.
+> Learn how to add custom input fields to your checkout with Polar
+
+By default, the Checkout form will only ask basic information from the customer to fulfill the order: a name, an email address, billing information, etc. But you might need more! A few examples:
+
+* A checkbox asking the customer to accept your terms
+* An opt-in newsletter consent
+* A select menu to ask where they heard from you
+* ...
+
+With Polar, you can easily add such fields to your checkout using **Custom Fields**.
+
+## Create Custom Fields
+
+Custom Fields are managed at an organization's level. To create them, go to **Settings** and **Custom Fields**. You'll see the list of all the available fields on your organization.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9336e8c093e8554f3c876539b0a04dfc" data-og-width="3840" width="3840" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/custom_fields.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=99738023cb392ee16d02c7054e9754a9 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=048d0d106f56c8edaef22aef0e99dd81 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=34107884543bfd1c72905cc70549689b 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=008ff767bd951aa023dfee7f7979bc5a 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=0bc7971296e76e6a605755ffab93f55a 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=5f172512315eb713c17eb17978044337 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=5ef991dece22a9936a56ba80ff2b7f0b" data-og-width="3840" width="3840" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/custom_fields.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=fc52ba0c61d624545ea29c159494231e 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=7c6ccbf7fdca8a9a21c4113cd38f9baa 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c77df99ab9f9595201730d7b0fa97539 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=d64b3fa5d15352ff291393b944b1819e 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c3be6ef25b4c9109d2879740e5a60652 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=ff9d438f6dcc5b86ed9bb62009a32500 2500w" />
+
+Click on **New Custom Field** to create a new one.
+
+### Type
+
+The type of the field is the most important thing to select. It determines what type of input will be displayed to the customer during checkout.
+
+The type can't be changed after the field is created.
+
+We support five types of fields:
+
+#### Text
+
+This will display a simple text field to input textual data. By default, it'll render a simple input field but you can render a **textarea** by toggling the option under `Form input options`.
+
+Under `Validation constraints`, you can add minimum and maximum length validation.
+
+Underneath, the data will be stored as a string.
+
+#### Number
+
+This will display a number input field. Under `Validation constraints`, you can add minimum and maximum validation.
+
+Underneath, the data will be stored as a number.
+
+#### Date
+
+This will display a date input field. Under `Validation constraints`, you can add minimum and maximum validation.
+
+Underneath, the data will be stored as a string using the ISO 8601 format.
+
+#### Checkbox
+
+This will display a checkbox field.
+
+Underneath, the data will be stored as a boolean (`true` or `false`).
+
+#### Select
+
+This will display a select field with a predefined set of options. Each option is a pair of `Value` and `Label`, the first one being the value that'll be stored underneath and the latter the one that will be shown to the customer.
+
+### Slug and name
+
+The slug determines the key that'll be used to store the data inside objects related to the checkout, like Orders and Subscriptions. It must be unique across your organization. You can change it afterwards, we'll automatically update the data to reflect the new slug.
+
+The name is what we'll be displayed to you to recognize the field across your dashboard. By default, it'll also be the label of the field displayed to the customer, unless you customize it under `Form input options`.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=6f8ed2dbf246c197d69eabc7b21f0c11" data-og-width="1620" width="1620" data-og-height="2334" height="2334" data-path="assets/features/custom-fields/create_custom_field.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=7145aa50e436d95a00ae6daa21844dd8 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c5ea12890fe0a4c56ae6cf65109bba36 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=10209fe5d1ee0ce9e81dd2ffd21515ac 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=f7f9b8c239476a79ada1198ce9d67ca3 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3e5ffcbb2a8ef05b39f77de327b54bb6 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=45309ac3f5dbb22a07c847be60ba6162 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=7b328aefe3e549d8f5b3239ed4ab6c8a" data-og-width="1620" width="1620" data-og-height="2334" height="2334" data-path="assets/features/custom-fields/create_custom_field.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=f007d5a459da5fd3a3ffec21065d4adf 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=289bded19a3c21dbf4545869ce1ec08e 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=65aa7cee7b5bed0709b3c1c1b1b84732 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=29a401893fa916d2a501b6522e9c7062 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=e98f035efdf080491a243aaa00f1e7c5 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/create_custom_field.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=341b56ceead350f11e635508f8abe638 2500w" />
+
+### Form input options
+
+Those options allow you to customize how the field is displayed to the customer. You can set:
+
+* The label, displayed above the field
+* The help text, displayed below the field
+* The placeholder, displayed inside the field when there is no value
+
+The label and help text supports basic Markdown syntax, so you can add bold, italic or even links.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=ab5165a85316c4f7fcf18a7a1fddc1ed" data-og-width="1383" width="1383" data-og-height="132" height="132" data-path="assets/features/custom-fields/label_markdown.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=19844fefa75decc0601c8128e98d9c96 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=be9c366a882e53983a18c8b400e7bc06 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=ef4676c752357a75de68d6983051be6e 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9daa35911458a0ac34d3f7b81711f563 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=bba0de986dcc4038e3484214f7de8eaf 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=532f364ac05a4f92b5e7da1b5ca35269 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=37edbb93d8023a969f300f0c6ed64ec1" data-og-width="1383" width="1383" data-og-height="132" height="132" data-path="assets/features/custom-fields/label_markdown.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=0765fc54e2d5ae68cb8b40313ff12731 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=62e402a85a3b7caf2af24e094be9ba2a 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=33b9838694288f840345e0bb0f969495 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=767e6b797327290e8019fefecac9916f 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=5ad6b20342db96da76c9f37d143c1366 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/label_markdown.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=73f6e72be1efd3d8c36c5c51451f2ad1 2500w" />
+
+## Add Custom Field to Checkout
+
+Custom Fields are enabled on Checkout specifically on each **product**. While [creating or updating](/features/products) a product, you can select the custom fields you want to include in the checkout for this product.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3e6f915cce570e5557be4840a8b3635f" data-og-width="3837" width="3837" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/add_custom_field.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4bdcf4810737beb41ed521a928407635 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c2041fe74136e03ef388644aeea7a434 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=d6071ab1af356051ed83715e177dee00 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=58f8ba77347b09fee18ac471c4907611 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=8f56592489d9413d31854657234331fc 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=aeff088270d57722f9da8becba3105b1 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=112f8074ec995496251095ebd4df8357" data-og-width="3837" width="3837" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/add_custom_field.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=0f6ada199c79681b31d6dd4258d65272 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=504c37f51d4e036374057188caf7cfc6 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=85010fa50961e1669864d9dffaeb2d9e 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3f2f1b750428c92f7811eefda4babe16 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9841ba793d86860a77ff28864ffba5aa 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/add_custom_field.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=a8b6597bff942af6791ed8db7710938a 2500w" />
+
+Note that you can make the field `Required`.
+
+<Tip>
+  If you make a **checkbox** field **required**, customers will have to check
+  the box before submitting the checkout. Very useful for terms acceptance!
+</Tip>
+
+The fields are now added as part of the Checkout form for this product.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4e3f32d0f537cf0380c4a8a115202768" data-og-width="1866" width="1866" data-og-height="4245" height="4245" data-path="assets/features/custom-fields/custom_fields_checkout.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=1893b34f87e7c82e92f8e6b3f59332e1 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=e0538da0d07c346dd56da836812d40f9 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=b749a6b21fb0267de676e8202ff82da5 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=651735fedc7da7960627e85c69666654 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=7cb564705010222b816c593a434a7b64 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=58a42c1de4ed2717c3873bccdee3d5d7 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=68bf181a740cd2112944ad02fac3cd19" data-og-width="1866" width="1866" data-og-height="4245" height="4245" data-path="assets/features/custom-fields/custom_fields_checkout.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=37b05d38a102673642ad98226dba6a09 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9428f14dbb8a2fbc963fb736c772c390 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=7793c80f3b096e26fb1438894b73b4aa 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4333ac142a8c12f93374f2fa5077c1c0 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=ad26d11aa34ef27f3f176e9b1ec36ee6 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_fields_checkout.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=66c1d2c61a0b953ae79e833f527423b8 2500w" />
+
+## Read data
+
+Once you have added Custom Fields to your organization, they'll be automatically displayed as a column in your `Sales` page, both on Orders and Subscriptions. From there, you'll be able to see the data input by the customer.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=775aed8bcca102fe3a9caf11e8206589" data-og-width="3840" width="3840" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/custom_field_data.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=856ce9f562e46e391a38f4d2f593dca5 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=f832cc93c8243197a5dd468f10e487dc 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=8c5618d4d3f450eacaff556d342da7f5 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=268debb6a903f1e9909ad85b4bdbbc3f 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=6b8d02bcf00ddf2840fd1c7b5c65769a 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9bb67b0942b01aeb4cef525eff57a7ce 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=e519df0b07c7c4ce98f43d2db87d617d" data-og-width="3840" width="3840" data-og-height="2400" height="2400" data-path="assets/features/custom-fields/custom_field_data.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=6137a51ded5e20729371330eab9c2b5a 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4ff972940db450a9500ca9f826459926 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=40e5347906d7d65f567123b6c0ef9ceb 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=20a253bb440e190ecaff8bb9a4ff71fb 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=05052261aa334be53809a8fc3d3c53d6 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/custom-fields/custom_field_data.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=9ce699636347368146bd0dd6360158ae 2500w" />
+
+This data is also available from the [Orders](/api-reference/orders/get) and [Subscriptions](/api-reference/subscriptions/get) API, under the `custom_field_data` property. Each value is referenced by the **slug** of the field.
+
+```json  theme={null}
+{
+  // ...
+  "custom_field_value": {
+    "terms": true,
+    "source": "social_media"
+  }
+}
+```

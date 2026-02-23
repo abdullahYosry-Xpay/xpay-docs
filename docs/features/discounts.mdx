@@ -1,8 +1,70 @@
 ---
 title: Discounts
-description: Discounts feature
+description: Create discounts on products and subscriptions
 ---
+> ## Documentation Index
+> Fetch the complete documentation index at: https://polar.sh/docs/llms.txt
+> Use this file to discover all available pages before exploring further.
 
 # Discounts
 
-Content coming soon.
+> Create discounts on products and subscriptions
+
+Discounts are a way to reduce the price of a product or subscription. They can be applied to one-time purchasable products or subscriptions.
+
+<img className="block dark:hidden" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=3c4044637217753344822d88e4807de7" data-og-width="2598" width="2598" data-og-height="1710" height="1710" data-path="assets/features/discounts/create.light.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=68c6dde8e228e487236c57c1a4662e7c 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=d5c23eaed21e4222942bcc01fbffa12c 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c5299db162e19f12339ef6a918cef77a 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=419bdefa767de5a45bdc2e37ff7f7464 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=4f739cc64b4056a3489b92c74e5d5d26 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.light.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=f86b965d715c16caf6f4b56b75e56182 2500w" />
+
+<img className="hidden dark:block" src="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=42b5287244d46cabf83fce057270dafe" data-og-width="2414" width="2414" data-og-height="1702" height="1702" data-path="assets/features/discounts/create.dark.png" data-optimize="true" data-opv="3" srcset="https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=280&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=f4a8a684b3167574299c44dd943c79d7 280w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=560&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=93359f47f1550465094b1f3d07cc7f3d 560w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=840&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=54cb09d31fd6519568f09dcd0b41f9a8 840w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=1100&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=0afbe2464830888bfd8e81ef759ab2e6 1100w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=1650&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=cbf2607c8b664696a2c55106c3eeabdc 1650w, https://mintcdn.com/polar/Ut0vPUvE1pIdMcH2/assets/features/discounts/create.dark.png?w=2500&fit=max&auto=format&n=Ut0vPUvE1pIdMcH2&q=85&s=c946617093723bdd2fcdf45acb2cdb8c 2500w" />
+
+## Create a discount
+
+Go to the **Products** page and click on the **Discounts** tab.
+
+#### Name
+
+Displayed to the customer when they apply the discount.
+
+#### Code
+
+Optional code (case insensitive) that the customer can use to apply the discount. If left empty, the discount can only be applied through a Checkout Link or the API.
+
+#### Percentage Discount
+
+The percentage discount to apply to the product or subscription.
+
+#### Fixed Amount Discount
+
+The discount deducts a fixed amount from the price of the product or subscription.
+
+#### Recurring Discount
+
+The percentage discount to apply to the product or subscription.
+
+* **Once** The discount is applied once.
+* **Several Months** The discount is applied for a fixed number of months.
+* **Forever** The discount is applied indefinitely.
+
+#### Restrictions
+
+* **Products** The discount can only be applied to specific products. By default the discount can be applied to all products, also ones created after the discount was created.
+* **Starts at** The discount can only be applied after this date
+* **Ends at** The discount can only be applied before this date
+* **Maximum redemptions** The maximum number of times the discount can be applied.
+
+## Apply a discount
+
+### Auto-apply via Checkout Link
+
+When creating a [Checkout Link](/features/checkout/links), you can preset a discount that will be automatically applied when customers land on the checkout page. This is useful for promotional campaigns or special offers where you want to guarantee the discount is applied without requiring customers to enter a code.
+
+<Info>
+  Discounts without a code can only be auto-applied through Checkout Links or the API.
+</Info>
+
+### Prefill via query parameter
+
+You can pass a `discount_code` query parameter to any Checkout Link URL to prefill a discount code in the checkout form. Note that this only prefills the field—customers will still see the code and it will be visible in the form.
+
+### Apply via API
+
+When creating a Checkout Session via the API, you can specify a discount to apply programmatically. See the [Checkout API documentation](/features/checkout/session) for details.
