@@ -6,9 +6,5 @@ export function baseOptions(): BaseLayoutProps {
       title: 'Xpay Docs',
       url: '/docs',
     },
-    sidebar: {
-      collapsible: false,
-      defaultOpenLevel: 1,
-    },
   };
 }
