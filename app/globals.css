@@ -33,6 +33,19 @@ body {
   color: var(--foreground);
 }
 
+/* Mobile: no horizontal overflow, layout can use full viewport */
+@media (max-width: 767px) {
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
+    max-width: 100vw;
+    padding-left: 0;
+    padding-right: 0;
+    margin: 0;
+  }
+}
+
+/* Desktop: keep default fumadocs layout (grid, article max-width). Only sidebar width. */
 #nd-docs-layout {
   --fd-sidebar-width: 280px;
 }
@@ -69,13 +82,14 @@ body {
   }
 }
 
+/* Main area: scroll + bottom padding for AI chat (desktop appearance unchanged) */
 #nd-docs-layout .\[grid-area\:main\] {
   overflow-y: auto;
   overflow-x: hidden;
   min-height: 0;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
-  padding-bottom: 5rem; /* space for floating AI chat input */
+  padding-bottom: 5rem;
 }
 
 @media (min-width: 768px) {
@@ -85,10 +99,10 @@ body {
   }
 }
 
-/* Mobile: full-width layout (override fumadocs inline grid that uses 97rem) */
+/* Mobile: article takes 100vw (full viewport width), no side padding */
 @media (max-width: 767px) {
   #nd-docs-layout {
-    width: 100% !important;
+    width: 100vw !important;
     min-width: 0 !important;
     max-width: 100vw !important;
     grid-template-columns: 1fr !important;
@@ -98,18 +112,41 @@ body {
       "main" !important;
   }
 
+  /* Main area: full viewport width, no horizontal padding */
   #nd-docs-layout .\[grid-area\:main\] {
-    width: 100% !important;
+    width: 100vw !important;
     min-width: 0 !important;
-    max-width: 100% !important;
-    padding-left: 1rem;
-    padding-right: 1rem;
+    max-width: 100vw !important;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    padding-bottom: 5rem;
   }
 
-  /* Inner content wrapper (fumadocs uses max-w-[900px]) — use full width on mobile */
-  #nd-docs-layout .\[grid-area\:main\] > * {
-    max-width: 100% !important;
-    width: 100% !important;
+  /* Article (#nd-page) and its wrapper: 100vw on mobile */
+  #nd-docs-layout .\[grid-area\:main\] > *,
+  #nd-docs-layout #nd-page,
+  #nd-docs-layout #nd-page > * {
+    max-width: 100vw !important;
+    width: 100vw !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
   }
-  
+
+  /* Override fumadocs article padding so content is edge-to-edge */
+  #nd-docs-layout #nd-page {
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+}
+
+/* Prevent long words from overflowing (full-width layout) */
+#nd-docs-layout #nd-page h1,
+#nd-docs-layout #nd-page h2,
+#nd-docs-layout #nd-page h3,
+#nd-docs-layout #nd-page [class*="prose"] {
+  overflow-wrap: break-word;
+  word-wrap: break-word;
+  min-width: 0;
 }
