@@ -75,6 +75,7 @@ body {
   min-height: 0;
   padding-left: 1.5rem;
   padding-right: 1.5rem;
+  padding-bottom: 5rem; /* space for floating AI chat input */
 }
 
 @media (min-width: 768px) {
