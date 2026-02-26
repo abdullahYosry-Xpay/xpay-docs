@@ -1,7 +1,20 @@
+import {
+  loader,
+  multiple,
+} from 'fumadocs-core/source';
+import { openapiPlugin, openapiSource } from 'fumadocs-openapi/server';
 import { docs } from 'fumadocs-mdx:collections/server';
-import { loader } from 'fumadocs-core/source';
+import { openapi } from '@/lib/openapi';
 
-export const source = loader({
-  baseUrl: '/docs',
-  source: docs.toFumadocsSource(),
-});
+export const source = loader(
+  multiple({
+    docs: docs.toFumadocsSource(),
+    openapi: await openapiSource(openapi, {
+      baseDir: 'openapi/(generated)',
+    }),
+  }),
+  {
+    baseUrl: '/docs',
+    plugins: [openapiPlugin()],
+  },
+);

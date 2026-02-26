@@ -1,1 +1,1 @@
-{"title":"OpenAPI","root":true,"pages":["index","health","get-me","create-item","update-item","delete-item","openapi","api-page","generate-files","create-openapi"]}
+{"title":"OpenAPI Example","description":"A demo for Fumadocs OpenAPI","root":true,"icon":"Shapes","pages":["index","...(generated)"]}

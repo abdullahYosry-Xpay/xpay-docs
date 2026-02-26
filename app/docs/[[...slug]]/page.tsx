@@ -6,7 +6,8 @@ import {
   DocsTitle,
   DocsDescription,
 } from 'fumadocs-ui/layouts/docs/page';
-import { findNeighbour } from 'fumadocs-core/page-tree';
+import { Card, Cards } from 'fumadocs-ui/components/card';
+import { findNeighbour, findSiblings } from 'fumadocs-core/page-tree';
 
 export default async function DocPage({
   params,
@@ -16,6 +17,18 @@ export default async function DocPage({
   const { slug } = await params;
   const page = source.getPage(slug);
   if (!page) notFound();
+
+  if ((page.data as { type?: string }).type === 'openapi') {
+    const { APIPage } = await import('@/components/api-page');
+    return (
+      <DocsPage full>
+        <h1 className="text-[1.75em] font-semibold">{page.data.title}</h1>
+        <DocsBody>
+          <APIPage {...(page.data as { getAPIPageProps: () => object }).getAPIPageProps()} />
+        </DocsBody>
+      </DocsPage>
+    );
+  }
 
   const tree = source.getPageTree();
   const neighbours = findNeighbour(tree, page.url);
@@ -48,8 +61,33 @@ export default async function DocPage({
       )}
       <DocsBody>
         <Body />
+        {(page.data as { index?: boolean }).index ? (
+          <DocsCategory url={page.url} />
+        ) : null}
       </DocsBody>
     </DocsPage>
+  );
+}
+
+function DocsCategory({ url }: { url: string }) {
+  return (
+    <Cards>
+      {findSiblings(source.getPageTree(), url).map((item) => {
+        if (item.type === 'separator') return null;
+        if (item.type === 'folder') {
+          if (!item.index) return null;
+          item = item.index;
+        }
+        return (
+          <Card
+            key={item.url}
+            title={item.name}
+            description={item.description}
+            href={item.url}
+          />
+        );
+      })}
+    </Cards>
   );
 }
 
