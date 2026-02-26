@@ -12,6 +12,7 @@
     "@ai-sdk/openai-compatible": "^2.0.30",
     "@ai-sdk/react": "^3.0.103",
     "@radix-ui/react-presence": "^1.1.5",
+    "@radix-ui/react-tooltip": "^1.2.8",
     "@types/mdx": "^2.0.13",
     "ai": "^6.0.101",
     "fumadocs": "^0.0.0",
