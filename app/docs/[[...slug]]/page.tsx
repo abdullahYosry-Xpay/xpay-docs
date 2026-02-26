@@ -1,11 +1,6 @@
 import { notFound } from 'next/navigation';
 import { source } from '@/lib/source';
-import {
-  DocsPage,
-  DocsBody,
-  DocsTitle,
-  DocsDescription,
-} from 'fumadocs-ui/layouts/docs/page';
+import { DocsPage, DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { findNeighbour, findSiblings } from 'fumadocs-core/page-tree';
 
@@ -40,6 +35,8 @@ export default async function DocPage({
     : undefined;
   const Body = page.data.body;
 
+  const isIndex = (page.data as { index?: boolean }).index;
+
   return (
     <DocsPage
       toc={page.data.toc}
@@ -55,16 +52,16 @@ export default async function DocPage({
         },
       }}
     >
-      <DocsTitle>{page.data.title ?? 'Untitled'}</DocsTitle>
+      <h1 className="text-[1.75em] font-semibold">{page.data.title ?? 'Untitled'}</h1>
       {page.data.description && (
-        <DocsDescription>{page.data.description}</DocsDescription>
+        <p className="text-lg text-fd-muted-foreground mb-2">{page.data.description}</p>
       )}
-      <DocsBody>
-        <Body />
-        {(page.data as { index?: boolean }).index ? (
-          <DocsCategory url={page.url} />
-        ) : null}
-      </DocsBody>
+      <div className="prose flex-1 text-fd-foreground/90">
+        <DocsBody>
+          <Body />
+        </DocsBody>
+        {isIndex ? <DocsCategory url={page.url} /> : null}
+      </div>
     </DocsPage>
   );
 }
@@ -78,13 +75,11 @@ function DocsCategory({ url }: { url: string }) {
           if (!item.index) return null;
           item = item.index;
         }
+
         return (
-          <Card
-            key={item.url}
-            title={item.name}
-            description={item.description}
-            href={item.url}
-          />
+          <Card key={item.url} title={item.name} href={item.url}>
+            {item.description}
+          </Card>
         );
       })}
     </Cards>
