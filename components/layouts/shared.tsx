@@ -25,7 +25,7 @@ export function baseOptions(): BaseLayoutProps {
       title: (
         <>
           {logo}
-          <span className="font-medium max-md:hidden ml-2">Docs</span>
+          <span className="font-medium max-md:hidden">Docs</span>
         </>
       ),
       url: '/docs',

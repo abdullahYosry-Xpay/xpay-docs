@@ -1,5 +1,5 @@
 import { source } from '@/lib/source';
-import { baseOptions } from '@/lib/layout.shared';
+import { baseOptions, linkItems, logo } from '@/components/layouts/shared';
 import { getFrameworkOpenApiTabs } from '@/lib/sidebar-tabs';
 import { AISearch, AISearchPanel, AISearchTrigger } from '@/components/ai/search';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
@@ -9,13 +9,24 @@ import { cn } from '@/lib/cn';
 import type { ReactNode } from 'react';
 
 export default function Layout({ children }: { children: ReactNode }) {
+  const base = baseOptions();
   const tree = source.getPageTree();
   const sidebarTabs = getFrameworkOpenApiTabs(tree);
 
   return (
     <DocsLayout
-      {...baseOptions()}
+      {...base}
       tree={tree}
+      links={linkItems.filter((item) => item.type === 'icon')}
+      nav={{
+        ...base.nav,
+        title: (
+          <>
+            {logo}
+            <span className="font-medium max-md:hidden">Docs</span>
+          </>
+        ),
+      }}
       sidebar={{
         tabs: sidebarTabs,
       }}

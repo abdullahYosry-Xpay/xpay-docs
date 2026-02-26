@@ -33,33 +33,44 @@ body {
   color: var(--foreground);
 }
 
-/* Mobile: no horizontal overflow (fumadocs layout handles the rest) */
+/* Mobile: prevent horizontal scroll without breaking sticky (clip doesn’t create scroll container) */
 @media (max-width: 767px) {
-  html,
+  html {
+    overflow-x: clip;
+    width: 100%;
+    max-width: 100vw;
+  }
   body {
-    overflow-x: hidden;
     width: 100%;
     max-width: 100vw;
     padding-left: 0;
     padding-right: 0;
     margin: 0;
+    /* Don’t use overflow-x: hidden on body — it can break position: sticky */
   }
 }
 
-@media (max-width: 767px) {
-  #nd-docs-layout #nd-subnav {
-    min-height: var(--fd-header-height, 3.5rem);
-    gap: 0.5rem;
-  }
-  #nd-docs-layout #nd-subnav > a:first-child {
-    min-width: 0;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  #nd-docs-layout #nd-subnav > div:first-of-type {
-    min-width: 0;
-  }
+/* Navbar: sticky at top exactly like fumadocs (mobile + any viewport) */
+#nd-docs-layout #nd-subnav {
+  position: sticky !important;
+  top: 0 !important;
+  z-index: 30;
+  min-height: var(--fd-header-height, 3.5rem);
+  gap: 0.5rem;
+  border-bottom: 1px solid var(--fd-border);
+  background: var(--fd-background);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+#nd-docs-layout #nd-subnav > a:first-child {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+#nd-docs-layout #nd-subnav > div:first-of-type {
+  min-width: 0;
 }
 
 /* OpenAPI operation pages (Fumadocs-style) */
