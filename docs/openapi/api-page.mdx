@@ -1,0 +1,59 @@
+---
+title: APIPage
+description: APIPage component for rendering OpenAPI in MDX
+---
+
+# APIPage
+
+Use the **APIPage** component to render OpenAPI operations in your MDX files.
+
+## Setup
+
+Create an `APIPage` component by combining the OpenAPI instance with client config:
+
+**`components/api-page.tsx`**
+
+```tsx
+import { openapi } from '@/lib/openapi';
+import { createAPIPage } from 'fumadocs-openapi/ui';
+import client from './api-page.client';
+
+export const APIPage = createAPIPage(openapi, {
+  client,
+});
+```
+
+**`components/api-page.client.tsx`**
+
+```tsx
+'use client';
+import { defineClientConfig } from 'fumadocs-openapi/ui/client';
+
+export default defineClientConfig({
+  // client-side config
+});
+```
+
+## Use in MDX
+
+Register the component in your MDX components (e.g. `mdx-components.tsx`):
+
+```tsx
+import { APIPage } from '@/components/api-page';
+
+export function getMDXComponents(components?: MDXComponents): MDXComponents {
+  return {
+    ...defaultComponents,
+    APIPage,
+    ...components,
+  };
+}
+```
+
+Then in any MDX file:
+
+```mdx
+<APIPage id="operationId" />
+```
+
+The component will render parameters, request body, responses, and example code for that operation.

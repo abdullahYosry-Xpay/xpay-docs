@@ -7,6 +7,7 @@ import {
   DocsDescription,
 } from 'fumadocs-ui/layouts/docs/page';
 import { findNeighbour } from 'fumadocs-core/page-tree';
+import { AskAITrigger } from '@/components/docs-ai-chat';
 
 export default async function DocPage({
   params,
@@ -30,6 +31,12 @@ export default async function DocPage({
   return (
     <DocsPage
       toc={page.data.toc}
+      tableOfContent={{
+        footer: <AskAITrigger />,
+      }}
+      tableOfContentPopover={{
+        footer: <AskAITrigger />,
+      }}
       footer={{
         enabled: true,
         items: {

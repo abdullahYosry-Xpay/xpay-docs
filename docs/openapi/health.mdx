@@ -1,0 +1,59 @@
+---
+title: Health check GET
+description: Check that the Xpay API is up
+---
+
+# Health check
+
+<OperationHeader
+  serverUrl="https://api-staging.xpayeg.com"
+  method="GET"
+  path="/"
+/>
+
+Check that the API is up. No authentication required.
+
+## Response Body
+
+<ResponseStatus codes={['200']}>
+
+```json
+{
+  "service": "xpay-api",
+  "status": "ok",
+  "timestamp": "2026-02-26T05:51:33.411Z"
+}
+```
+
+</ResponseStatus>
+
+## Code samples
+
+<Tabs items={['cURL', 'JavaScript', 'Python']}>
+  <Tab value="cURL">
+
+```bash
+curl -X GET "https://api-staging.xpayeg.com/"
+```
+
+  </Tab>
+  <Tab value="JavaScript">
+
+```javascript
+const response = await fetch('https://api-staging.xpayeg.com/');
+const data = await response.json();
+console.log(data);
+```
+
+  </Tab>
+  <Tab value="Python">
+
+```python
+import requests
+
+response = requests.get("https://api-staging.xpayeg.com/")
+print(response.json())
+```
+
+  </Tab>
+</Tabs>
