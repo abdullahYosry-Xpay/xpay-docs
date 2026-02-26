@@ -7,7 +7,6 @@ import {
   DocsDescription,
 } from 'fumadocs-ui/layouts/docs/page';
 import { findNeighbour } from 'fumadocs-core/page-tree';
-import { AISearchTOCTrigger } from '@/components/ai/search';
 
 export default async function DocPage({
   params,
@@ -31,12 +30,6 @@ export default async function DocPage({
   return (
     <DocsPage
       toc={page.data.toc}
-      tableOfContent={{
-        footer: <AISearchTOCTrigger />,
-      }}
-      tableOfContentPopover={{
-        footer: <AISearchTOCTrigger />,
-      }}
       footer={{
         enabled: true,
         items: {
