@@ -119,7 +119,7 @@ function OpenAPICard(props: {
     <Wrapper
       href={href}
       className={cn(
-        'block rounded-xl border border-l-4 bg-fd-card p-4 text-fd-card-foreground transition-colors @max-lg:col-span-full',
+        'block rounded-xl border border-l-4 bg-fd-card p-4 text-fd-card-foreground no-underline transition-colors @max-lg:col-span-full',
         colors.border,
         href && 'hover:bg-fd-accent/80'
       )}
