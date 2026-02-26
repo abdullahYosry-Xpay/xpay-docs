@@ -9,14 +9,21 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@ai-sdk/openai-compatible": "^2.0.30",
+    "@ai-sdk/react": "^3.0.103",
+    "@radix-ui/react-presence": "^1.1.5",
     "@types/mdx": "^2.0.13",
+    "ai": "^6.0.101",
     "fumadocs": "^0.0.0",
     "fumadocs-core": "^16.6.0",
     "fumadocs-mdx": "^14.2.7",
     "fumadocs-ui": "^16.6.3",
     "next": "16.1.6",
     "react": "19.2.3",
-    "react-dom": "19.2.3"
+    "react-dom": "19.2.3",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1",
+    "zod": "^4.3.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
