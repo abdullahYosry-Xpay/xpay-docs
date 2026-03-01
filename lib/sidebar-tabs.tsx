@@ -1,6 +1,6 @@
 import type * as PageTree from 'fumadocs-core/page-tree';
 import type { ReactNode } from 'react';
-import { BookOpen, Code2 } from 'lucide-react';
+import { BookOpen, Code2, LibraryBigIcon } from 'lucide-react';
 
 export type SidebarTabWithProps = {
   url: string;
@@ -50,19 +50,30 @@ export function getFrameworkOpenApiTabs(tree: PageTree.Root): SidebarTabWithProp
 
   const frameworkFirstUrl = frameworkUrls.values().next().value ?? baseUrl;
 
+  const iconWrapperClass =
+    'flex size-9 shrink-0 items-center justify-center rounded-lg bg-fd-primary/20 md:bg-transparent md:size-5';
+
   return [
     {
       url: frameworkFirstUrl,
       title: 'Framework',
       description: 'Documentation and integration guides',
-      icon: <BookOpen className="size-4 shrink-0" />,
+      icon: (
+        <span className={iconWrapperClass}>
+          <LibraryBigIcon className="size-6 shrink-0" />
+        </span>
+      ),
       urls: frameworkUrls,
     },
     {
       url: openApiFirstUrl || openApiPrefix,
       title: 'OpenAPI',
       description: 'API reference and endpoints',
-      icon: <Code2 className="size-4 shrink-0" />,
+      icon: (
+        <span className={iconWrapperClass}>
+          <Code2 className="size-6 shrink-0" />
+        </span>
+      ),
       urls: openApiUrls,
     },
   ];
