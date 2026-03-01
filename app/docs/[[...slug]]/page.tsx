@@ -1,3 +1,4 @@
+import type { ComponentProps } from 'react';
 import { notFound } from 'next/navigation';
 import { source } from '@/lib/source';
 import { DocsPage, DocsBody } from 'fumadocs-ui/layouts/docs/page';
@@ -17,11 +18,14 @@ export default async function DocPage({
 
   if ((page.data as { type?: string }).type === 'openapi') {
     const { APIPage } = await import('@/components/api-page');
+    const apiPageProps = (
+      page.data as { getAPIPageProps: () => ComponentProps<typeof APIPage> }
+    ).getAPIPageProps();
     return (
       <DocsPage full>
         <h1 className="text-[1.75em] font-semibold">{page.data.title}</h1>
         <DocsBody>
-          <APIPage {...(page.data as { getAPIPageProps: () => object }).getAPIPageProps()} />
+          <APIPage {...apiPageProps} />
         </DocsBody>
       </DocsPage>
     );
