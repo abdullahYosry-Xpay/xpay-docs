@@ -3,7 +3,7 @@ import { notFound } from 'next/navigation';
 import { source } from '@/lib/source';
 import { DocsPage, DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { Card, Cards } from 'fumadocs-ui/components/card';
-import { findNeighbour, findSiblings } from 'fumadocs-core/page-tree';
+import { findNeighbour, findSiblings, flattenTree } from 'fumadocs-core/page-tree';
 import { getDocsGitHubUrls } from '@/lib/github';
 import { DocsPageActions } from '@/components/docs-page-actions';
 
@@ -21,12 +21,27 @@ export default async function DocPage({
     const apiPageProps = (
       page.data as { getAPIPageProps: () => ComponentProps<typeof APIPage> }
     ).getAPIPageProps();
+    const isOpenAPIIndex = (page.data as { index?: boolean }).index;
     return (
       <DocsPage full>
         <h1 className="text-[1.75em] font-semibold">{page.data.title}</h1>
-        <DocsBody>
-          <APIPage {...apiPageProps} />
-        </DocsBody>
+        {page.data.description && (
+          <p className="text-lg text-fd-muted-foreground mb-2">{page.data.description}</p>
+        )}
+        {isOpenAPIIndex ? (
+          <>
+            <DocsBody>
+              <OpenAPIEndpointCardsFromTree />
+            </DocsBody>
+            <DocsBody>
+              <APIPage {...apiPageProps} />
+            </DocsBody>
+          </>
+        ) : (
+          <DocsBody>
+            <APIPage {...apiPageProps} />
+          </DocsBody>
+        )}
       </DocsPage>
     );
   }
@@ -69,7 +84,11 @@ export default async function DocPage({
         <DocsBody>
           <Body />
         </DocsBody>
-        {isIndex ? <DocsCategory url={page.url} /> : null}
+        {page.url === '/docs/openapi' ? (
+          <OpenAPIEndpointCardsFromTree />
+        ) : isIndex ? (
+          <DocsCategory url={page.url} />
+        ) : null}
       </div>
     </DocsPage>
   );
@@ -91,6 +110,31 @@ function DocsCategory({ url }: { url: string }) {
           </Card>
         );
       })}
+    </Cards>
+  );
+}
+
+const OPENAPI_INDEX_URL = '/docs/openapi';
+
+/** Cards for all OpenAPI endpoints when route is /docs/openapi (sidebar endpoints from YML). */
+function OpenAPIEndpointCardsFromTree() {
+  const tree = source.getPageTree();
+  const allPages = flattenTree(tree.children);
+  const endpointItems = allPages.filter(
+    (item) =>
+      item.type === 'page' &&
+      !item.external &&
+      item.url.startsWith(OPENAPI_INDEX_URL) &&
+      item.url !== OPENAPI_INDEX_URL
+  );
+
+  return (
+    <Cards>
+      {endpointItems.map((item) => (
+        <Card key={item.url} title={item.name} href={item.url}>
+          {item.description}
+        </Card>
+      ))}
     </Cards>
   );
 }
