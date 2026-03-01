@@ -3,6 +3,8 @@ import { source } from '@/lib/source';
 import { DocsPage, DocsBody } from 'fumadocs-ui/layouts/docs/page';
 import { Card, Cards } from 'fumadocs-ui/components/card';
 import { findNeighbour, findSiblings } from 'fumadocs-core/page-tree';
+import { getDocsGitHubUrls } from '@/lib/github';
+import { DocsPageActions } from '@/components/docs-page-actions';
 
 export default async function DocPage({
   params,
@@ -37,6 +39,8 @@ export default async function DocPage({
 
   const isIndex = (page.data as { index?: boolean }).index;
 
+  const { markdownUrl, githubUrl } = getDocsGitHubUrls(slug);
+
   return (
     <DocsPage
       toc={page.data.toc}
@@ -56,6 +60,7 @@ export default async function DocPage({
       {page.data.description && (
         <p className="text-lg text-fd-muted-foreground mb-2">{page.data.description}</p>
       )}
+      <DocsPageActions markdownUrl={markdownUrl} githubUrl={githubUrl} />
       <div className="prose flex-1 text-fd-foreground/90">
         <DocsBody>
           <Body />
