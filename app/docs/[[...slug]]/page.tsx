@@ -79,7 +79,11 @@ export default async function DocPage({
       {page.data.description && (
         <p className="text-lg text-fd-muted-foreground mb-2">{page.data.description}</p>
       )}
-      <DocsPageActions markdownUrl={markdownUrl} githubUrl={githubUrl} />
+      <DocsPageActions
+        markdownUrl={markdownUrl}
+        githubUrl={githubUrl}
+        pagePath={page.url}
+      />
       <div className="prose flex-1 text-fd-foreground/90">
         <DocsBody>
           <Body />
