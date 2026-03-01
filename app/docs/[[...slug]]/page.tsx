@@ -1,4 +1,4 @@
-import type { ComponentProps } from 'react';
+import type { ComponentProps, ComponentType } from 'react';
 import { notFound } from 'next/navigation';
 import { source } from '@/lib/source';
 import { DocsPage, DocsBody } from 'fumadocs-ui/layouts/docs/page';
@@ -39,7 +39,7 @@ export default async function DocPage({
   const next = neighbours.next
     ? source.getNodePage(neighbours.next)
     : undefined;
-  const Body = page.data.body;
+  const Body = (page.data as { body: ComponentType }).body;
 
   const isIndex = (page.data as { index?: boolean }).index;
 
