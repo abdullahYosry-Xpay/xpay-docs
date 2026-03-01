@@ -4,7 +4,8 @@ import type { ReactNode } from 'react';
 export type SidebarTabWithProps = {
   url: string;
   title: ReactNode;
-  description?: React.ReactNode;
+  description?: ReactNode;
+  icon?: ReactNode;
   urls?: Set<string>;
   unlisted?: boolean;
 };
