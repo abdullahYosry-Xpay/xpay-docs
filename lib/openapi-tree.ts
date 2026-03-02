@@ -46,14 +46,14 @@ export function getOpenApiGroupedTree(
   operationTagMap: Map<string, string>
 ): PageTree.Root {
   const endpointPages = flattenTree(tree.children).filter(
-    (item): item is PageTree.Page =>
+    (item): item is Extract<PageTree.Node, { type: 'page' }> =>
       item.type === 'page' &&
       !item.external &&
       item.url.startsWith(openApiIndexUrl) &&
       item.url !== openApiIndexUrl
   );
 
-  const byTag = new Map<string, PageTree.Page[]>();
+  const byTag = new Map<string,Extract<PageTree.Node, { type: 'page' }>[]>();
   for (const p of endpointPages) {
     const slug = getOperationSlugFromUrl(p.url);
     const tag =
