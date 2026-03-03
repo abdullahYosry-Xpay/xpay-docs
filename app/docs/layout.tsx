@@ -1,10 +1,14 @@
 import { source } from '@/lib/source';
 import { baseOptions, linkItems, logo } from '@/components/layouts/shared';
 import { getFrameworkOpenApiTabs } from '@/lib/sidebar-tabs';
-import { getOpenApiGroupedTree } from '@/lib/openapi-tree';
+import {
+  getOpenApiGroupedTree,
+  getFrameworkOnlyTree,
+  getOpenApiOnlyTree,
+} from '@/lib/openapi-tree';
 import { getOpenApiOperationTagMap } from '@/lib/openapi';
 import { AISearch, AISearchPanel, AISearchTrigger } from '@/components/ai/search';
-import { DocsLayout } from 'fumadocs-ui/layouts/docs';
+import { DocsLayoutClient } from '@/app/docs/docs-layout-client';
 import { buttonVariants } from 'fumadocs-ui/components/ui/button';
 import { MessageCircleIcon } from 'lucide-react';
 import { cn } from '@/lib/cn';
@@ -15,12 +19,16 @@ export default function Layout({ children }: { children: ReactNode }) {
   const tree = source.getPageTree();
   const operationTagMap = getOpenApiOperationTagMap();
   const groupedTree = getOpenApiGroupedTree(tree, operationTagMap);
+  const frameworkTree = getFrameworkOnlyTree(groupedTree);
+  const openApiTree = getOpenApiOnlyTree(groupedTree);
   const sidebarTabs = getFrameworkOpenApiTabs(tree);
 
   return (
-    <DocsLayout
-      {...base}
-      tree={groupedTree}
+    <DocsLayoutClient
+      frameworkTree={frameworkTree}
+      openApiTree={openApiTree}
+      sidebarTabs={sidebarTabs}
+      baseProps={base}
       links={linkItems.filter((item) => item.type === 'icon')}
       nav={{
         ...base.nav,
@@ -30,9 +38,6 @@ export default function Layout({ children }: { children: ReactNode }) {
             <span className="font-medium max-md:hidden">Docs</span>
           </>
         ),
-      }}
-      sidebar={{
-        tabs: sidebarTabs,
       }}
     >
       <AISearch>
@@ -51,6 +56,6 @@ export default function Layout({ children }: { children: ReactNode }) {
           Ask AI
         </AISearchTrigger>
       </AISearch>
-    </DocsLayout>
+    </DocsLayoutClient>
   );
 }

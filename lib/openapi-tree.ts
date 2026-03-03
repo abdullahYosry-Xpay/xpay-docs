@@ -89,3 +89,29 @@ export function getOpenApiGroupedTree(
 
   return { ...tree, children: tree.children.map(transformNode) };
 }
+
+/**
+ * Returns a tree that only contains framework docs (no OpenAPI folder).
+ * Use when Framework tab is selected so the sidebar shows all content without "OpenAPI Example".
+ */
+export function getFrameworkOnlyTree(tree: PageTree.Root): PageTree.Root {
+  const children = tree.children.filter(
+    (node) => node.type !== 'folder' || !isOpenApiFolder(node as PageTree.Folder)
+  );
+  return { ...tree, children };
+}
+
+/**
+ * Returns a tree that only contains OpenAPI content, with the index page and all
+ * tag groups (e.g. Health, User, Checkout Sessions) as top-level sidebar items.
+ * Use when OpenAPI tab is selected so the sidebar shows all OpenAPI groups.
+ */
+export function getOpenApiOnlyTree(tree: PageTree.Root): PageTree.Root {
+  const openApiFolder = tree.children.find(
+    (node): node is PageTree.Folder =>
+      node.type === 'folder' && isOpenApiFolder(node)
+  );
+  if (!openApiFolder) return { ...tree, children: [] };
+  // Flatten: index and all tag groups are already in folder.children; show them at root level
+  return { ...tree, children: openApiFolder.children };
+}
