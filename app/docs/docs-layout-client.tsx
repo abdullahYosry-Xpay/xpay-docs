@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import type * as PageTree from 'fumadocs-core/page-tree';
 import type { SidebarTabWithProps } from '@/lib/sidebar-tabs';
-import type { LinkItemType } from 'fumadocs-ui/layouts/shared';
+import type { BaseLayoutProps, LinkItemType } from 'fumadocs-ui/layouts/shared';
 import { DocsLayout } from 'fumadocs-ui/layouts/docs';
 import type { ReactNode } from 'react';
 
@@ -13,7 +13,7 @@ type DocsLayoutClientProps = {
   frameworkTree: PageTree.Root;
   openApiTree: PageTree.Root;
   sidebarTabs: SidebarTabWithProps[];
-  baseProps: Record<string, unknown>;
+  baseProps: BaseLayoutProps
   links: LinkItemType[];
   nav: { title: React.ReactNode; url: string };
   children: ReactNode;
