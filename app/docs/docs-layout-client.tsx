@@ -15,7 +15,7 @@ type DocsLayoutClientProps = {
   sidebarTabs: SidebarTabWithProps[];
   baseProps: BaseLayoutProps
   links: LinkItemType[];
-  nav: { title: React.ReactNode; url: string };
+  nav: BaseLayoutProps['nav'];
   children: ReactNode;
 };
 
